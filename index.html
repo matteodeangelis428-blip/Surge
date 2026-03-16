@@ -1,19 +1,27 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Surge Electrolyte Pouches</title>
+<title>SURGE Energy Pouches</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
+:root{
+--accent:#39ff14;
+--bg:#06160d;
+}
+
 body{
-font-family:'Poppins',sans-serif;
 margin:0;
-background:#0b1f0f;
+font-family:Poppins;
+background:var(--bg);
 color:white;
+overflow-x:hidden;
+transition:0.4s;
 }
 
 header{
@@ -22,66 +30,53 @@ justify-content:space-between;
 align-items:center;
 padding:20px 40px;
 background:#0f3b1a;
+position:sticky;
+top:0;
+z-index:10;
 }
 
 .logo{
-font-size:28px;
+font-size:30px;
 font-weight:700;
-color:#39ff14;
+color:var(--accent);
 }
 
 nav a{
 margin-left:20px;
 text-decoration:none;
 color:white;
-font-weight:500;
 }
 
 .hero{
-display:flex;
-align-items:center;
-justify-content:center;
-flex-direction:column;
 text-align:center;
-padding:100px 20px;
-background:linear-gradient(180deg,#0b1f0f,#133b1c);
+padding:120px 20px;
+background:radial-gradient(circle at center,#124d25,#06160d);
 }
 
 .hero h1{
-font-size:60px;
-color:#39ff14;
+font-size:65px;
+color:var(--accent);
 }
 
-.hero p{
-font-size:22px;
-max-width:600px;
-}
-
-.btn{
-margin-top:20px;
+.button{
+margin-top:30px;
 padding:15px 40px;
-font-size:18px;
+background:var(--accent);
 border:none;
-background:#39ff14;
-color:black;
 border-radius:30px;
-cursor:pointer;
+font-size:18px;
 font-weight:bold;
-transition:0.3s;
-}
-
-.btn:hover{
-transform:scale(1.1);
+cursor:pointer;
 }
 
 .products{
-padding:60px 20px;
+padding:80px 20px;
 text-align:center;
 }
 
 .products h2{
+color:var(--accent);
 font-size:40px;
-color:#39ff14;
 }
 
 .product-grid{
@@ -92,181 +87,225 @@ margin-top:40px;
 }
 
 .card{
-background:#133b1c;
+background:#103c1c;
 border-radius:20px;
 padding:30px;
-transition:0.3s;
-box-shadow:0 0 20px rgba(57,255,20,0.3);
+box-shadow:0 0 30px rgba(0,255,0,.3);
 }
 
-.card:hover{
-transform:translateY(-10px);
-box-shadow:0 0 30px rgba(57,255,20,0.7);
+.can{
+width:170px;
+height:170px;
+border-radius:50%;
+margin:auto;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+font-weight:700;
+animation:spin 6s linear infinite;
 }
 
-.card img{
-width:100%;
-border-radius:10px;
+.lime{background:#36ff2f;}
+.berry{background:#a728ff;}
+.mint{background:#2ce8e8;}
+
+@keyframes spin{
+0%{transform:rotateY(0deg)}
+100%{transform:rotateY(360deg)}
 }
 
-.card h3{
-margin-top:15px;
-color:#39ff14;
+.flavor-selector{
+margin-top:50px;
 }
 
-.features{
+.flavor-btn{
+padding:10px 25px;
+margin:10px;
+border:none;
+border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.calculator{
 padding:80px 20px;
+text-align:center;
 background:#0f3b1a;
-text-align:center;
 }
 
-.feature-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:30px;
-margin-top:40px;
+input,select{
+padding:10px;
+margin:10px;
+border-radius:8px;
+border:none;
+width:200px;
 }
 
-.feature{
-background:#133b1c;
-padding:30px;
-border-radius:15px;
-}
-
-.feature h3{
-color:#39ff14;
-}
-
-.athletes{
-padding:80px 20px;
-text-align:center;
-}
-
-.athlete-grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:30px;
-margin-top:40px;
-}
-
-.athlete-grid img{
-width:100%;
+.calc-btn{
+background:var(--accent);
+padding:12px 30px;
+border:none;
 border-radius:20px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.result{
+margin-top:20px;
+font-size:22px;
+color:var(--accent);
+}
+
+.breakdown{
+margin-top:20px;
+font-size:18px;
 }
 
 footer{
-text-align:center;
 padding:30px;
-background:#0b1f0f;
+text-align:center;
+background:#06160d;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <header>
+
 <div class="logo">SURGE ⚡</div>
+
 <nav>
-<a href="#products">Products</a>
-<a href="#features">Benefits</a>
-<a href="#athletes">Athletes</a>
+<a href="#products">Flavors</a>
+<a href="#calculator">Calculator</a>
 </nav>
+
 </header>
 
 <section class="hero">
 
-<h1>Fuel Your Surge</h1>
+<h1>ENERGY WITHOUT THE DRINK</h1>
 
-<p>
-Electrolyte + caffeine pouches designed for athletes, students,
-and high performers who need instant energy and hydration.
-</p>
+<p>Electrolyte caffeine pouches for athletes, students, and high performers.</p>
 
-<button class="btn">Buy Surge</button>
+<button class="button">Try Surge</button>
 
 </section>
 
 <section class="products" id="products">
 
-<h2>Our Flavors</h2>
+<h2>Choose Your Flavor</h2>
 
 <div class="product-grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb">
+<div class="can lime">SURGE</div>
 <h3>Lime Charge</h3>
-<p>Electrolyte citrus blast with 80mg caffeine.</p>
+<p>Citrus energy pouch</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1622483767028-3f66f32d2bcb">
+<div class="can berry">SURGE</div>
 <h3>Berry Voltage</h3>
-<p>Antioxidant berries with hydration minerals.</p>
+<p>Berry antioxidant boost</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1622484212850-eb596d769edc">
+<div class="can mint">SURGE</div>
 <h3>Arctic Mint</h3>
-<p>Cooling mint flavor with clean energy.</p>
+<p>Cooling mint energy</p>
 </div>
 
 </div>
 
-</section>
+<div class="flavor-selector">
 
-<section class="features" id="features">
+<h3>Change Site Flavor Theme</h3>
 
-<h2>Why Surge?</h2>
+<button class="flavor-btn" onclick="setTheme('#36ff2f')">Lime</button>
 
-<div class="feature-grid">
+<button class="flavor-btn" onclick="setTheme('#a728ff')">Berry</button>
 
-<div class="feature">
-<h3>⚡ Fast Energy</h3>
-<p>Absorbs faster than drinks.</p>
-</div>
-
-<div class="feature">
-<h3>💧 Electrolytes</h3>
-<p>Hydration salts for endurance.</p>
-</div>
-
-<div class="feature">
-<h3>🎒 Portable</h3>
-<p>Take Surge anywhere.</p>
-</div>
-
-<div class="feature">
-<h3>🏃 Athlete Approved</h3>
-<p>Perfect for sports and workouts.</p>
-</div>
+<button class="flavor-btn" onclick="setTheme('#2ce8e8')">Mint</button>
 
 </div>
 
 </section>
 
-<section class="athletes" id="athletes">
+<section class="calculator" id="calculator">
 
-<h2>Powered By Surge</h2>
+<h2>Hydration + Energy Calculator</h2>
 
-<div class="athlete-grid">
+<input id="age" type="number" placeholder="Age">
 
-<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438">
+<br>
 
-<img src="https://images.unsplash.com/photo-1526401485004-2fda9f5d0b23">
+<input id="weight" type="number" placeholder="Weight (lbs)">
 
-<img src="https://images.unsplash.com/photo-1508606572321-901ea443707f">
+<br>
 
-</div>
+<select id="activity">
+
+<option value="1">Low Activity</option>
+<option value="1.3">Moderate Activity</option>
+<option value="1.6">High Activity</option>
+<option value="2">Extreme Athlete</option>
+
+</select>
+
+<br>
+
+<button class="calc-btn" onclick="calc()">Calculate</button>
+
+<div class="result" id="output"></div>
+
+<div class="breakdown" id="breakdown"></div>
 
 </section>
 
 <footer>
 
-<p>© 2026 Surge Energy Pouches</p>
-<p>Fuel the Surge ⚡</p>
+<p>© 2026 Surge Energy</p>
 
 </footer>
 
+<script>
+
+function setTheme(color){
+document.documentElement.style.setProperty('--accent',color)
+}
+
+function calc(){
+
+let age=document.getElementById("age").value
+let weight=document.getElementById("weight").value
+let activity=document.getElementById("activity").value
+
+let electrolytes=(weight*12)*activity
+let caffeine=(weight*1.1)*activity
+
+if(age<18){
+electrolytes*=0.9
+caffeine*=0.8
+}
+
+let sodium=electrolytes*0.5
+let potassium=electrolytes*0.3
+let magnesium=electrolytes*0.2
+
+document.getElementById("output").innerHTML=
+"Electrolytes: "+Math.round(electrolytes)+" mg/day | Caffeine: "+Math.round(caffeine)+" mg/day"
+
+document.getElementById("breakdown").innerHTML=
+"Sodium: "+Math.round(sodium)+" mg<br>Potassium: "+Math.round(potassium)+" mg<br>Magnesium: "+Math.round(magnesium)+" mg"
+
+}
+
+</script>
+
 </body>
 </html>
+```
