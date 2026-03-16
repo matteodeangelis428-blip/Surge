@@ -1,420 +1,272 @@
-```html
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Surge Electrolyte Pouches</title>
 
-<title>SURGE | Electrolyte Pouches</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins;
-}
-
 body{
-background:#020f06;
+font-family:'Poppins',sans-serif;
+margin:0;
+background:#0b1f0f;
 color:white;
-overflow-x:hidden;
 }
 
-/* NAVBAR */
-
-nav{
-position:fixed;
-width:100%;
+header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:18px 10%;
-background:rgba(0,0,0,0.6);
-backdrop-filter:blur(12px);
-z-index:1000;
+padding:20px 40px;
+background:#0f3b1a;
 }
 
-nav h1{
-color:#00ff9d;
-font-family:Orbitron;
+.logo{
+font-size:28px;
+font-weight:700;
+color:#39ff14;
 }
 
 nav a{
-color:white;
-margin-left:30px;
+margin-left:20px;
 text-decoration:none;
+color:white;
+font-weight:500;
 }
-
-/* HERO */
 
 .hero{
-height:100vh;
 display:flex;
-flex-direction:column;
-justify-content:center;
 align-items:center;
+justify-content:center;
+flex-direction:column;
 text-align:center;
-background:radial-gradient(circle,#003d1f,#000);
+padding:100px 20px;
+background:linear-gradient(180deg,#0b1f0f,#133b1c);
 }
 
-.hero h2{
-font-size:80px;
-color:#00ff9d;
-text-shadow:0 0 40px #00ff9d;
+.hero h1{
+font-size:60px;
+color:#39ff14;
 }
 
 .hero p{
+font-size:22px;
+max-width:600px;
+}
+
+.btn{
 margin-top:20px;
-max-width:650px;
-}
-
-.cta{
-margin-top:40px;
-padding:16px 45px;
+padding:15px 40px;
+font-size:18px;
 border:none;
-border-radius:40px;
-background:#00ff9d;
+background:#39ff14;
 color:black;
-font-weight:bold;
+border-radius:30px;
 cursor:pointer;
-box-shadow:0 0 25px #00ff9d;
-transition:.3s;
+font-weight:bold;
+transition:0.3s;
 }
 
-.cta:hover{
+.btn:hover{
 transform:scale(1.1);
-box-shadow:0 0 50px #00ff9d;
 }
-
-/* PRODUCT SPIN */
-
-.product3d{
-margin-top:60px;
-}
-
-.product3d img{
-width:240px;
-animation:spin 12s linear infinite;
-}
-
-@keyframes spin{
-from{transform:rotateY(0)}
-to{transform:rotateY(360deg)}
-}
-
-/* SECTIONS */
-
-.section{
-padding:120px 10%;
-}
-
-.title{
-text-align:center;
-font-size:42px;
-margin-bottom:60px;
-color:#00ff9d;
-}
-
-/* PRODUCT CARDS */
 
 .products{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
+padding:60px 20px;
+text-align:center;
+}
+
+.products h2{
+font-size:40px;
+color:#39ff14;
+}
+
+.product-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:40px;
+margin-top:40px;
 }
 
 .card{
-background:#052b17;
-padding:25px;
-border-radius:18px;
-width:280px;
-transition:.4s;
+background:#133b1c;
+border-radius:20px;
+padding:30px;
+transition:0.3s;
+box-shadow:0 0 20px rgba(57,255,20,0.3);
 }
 
 .card:hover{
-transform:translateY(-12px);
-box-shadow:0 0 40px #00ff9d;
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(57,255,20,0.7);
 }
 
 .card img{
 width:100%;
-border-radius:12px;
+border-radius:10px;
 }
 
-/* PRICING */
-
-.pricing{
-display:flex;
-justify-content:center;
-gap:40px;
-flex-wrap:wrap;
+.card h3{
+margin-top:15px;
+color:#39ff14;
 }
 
-.price-card{
-background:#042512;
+.features{
+padding:80px 20px;
+background:#0f3b1a;
+text-align:center;
+}
+
+.feature-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.feature{
+background:#133b1c;
 padding:30px;
-border-radius:18px;
-width:260px;
-text-align:center;
+border-radius:15px;
 }
 
-.price{
-font-size:34px;
-color:#00ff9d;
-margin:15px 0;
+.feature h3{
+color:#39ff14;
 }
-
-/* CALCULATOR */
-
-.calculator{
-text-align:center;
-}
-
-input{
-padding:12px;
-margin:10px;
-border-radius:8px;
-border:none;
-}
-
-button.calc{
-padding:12px 30px;
-background:#00ff9d;
-border:none;
-cursor:pointer;
-}
-
-/* ATHLETES */
 
 .athletes{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
-gap:40px;
+padding:80px 20px;
+text-align:center;
 }
 
-.athletes img{
-width:260px;
+.athlete-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+margin-top:40px;
+}
+
+.athlete-grid img{
+width:100%;
 border-radius:20px;
-transition:.3s;
 }
-
-.athletes img:hover{
-transform:scale(1.05);
-}
-
-/* CHART */
-
-.chart{
-max-width:700px;
-margin:auto;
-}
-
-/* FOOTER */
 
 footer{
-background:black;
-padding:40px;
 text-align:center;
-margin-top:80px;
+padding:30px;
+background:#0b1f0f;
 }
 
 </style>
-
 </head>
 
 <body>
 
-
+<header>
+<div class="logo">SURGE ⚡</div>
 <nav>
-
-<h1>SURGE</h1>
-
-<div>
-<a href="#">Home</a>
-<a href="#products">Flavors</a>
-<a href="#science">Science</a>
-<a href="#pricing">Shop</a>
-</div>
-
+<a href="#products">Products</a>
+<a href="#features">Benefits</a>
+<a href="#athletes">Athletes</a>
 </nav>
-
+</header>
 
 <section class="hero">
 
-<h2>FUEL THE SURGE</h2>
+<h1>Fuel Your Surge</h1>
 
 <p>
-Electrolyte pouches designed for athletes, competitors, and high performers.
-Hydration. Energy. Recovery.
+Electrolyte + caffeine pouches designed for athletes, students,
+and high performers who need instant energy and hydration.
 </p>
 
-<button class="cta">Shop Now</button>
-
-<div class="product3d">
-<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e">
-</div>
+<button class="btn">Buy Surge</button>
 
 </section>
 
+<section class="products" id="products">
 
-<section id="products" class="section">
+<h2>Our Flavors</h2>
 
-<h2 class="title">Surge Flavors</h2>
-
-<div class="products">
+<div class="product-grid">
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e">
-<h3>Lime Surge</h3>
-<p>Clean citrus electrolyte boost.</p>
+<img src="https://images.unsplash.com/photo-1600185365926-3a2ce3cdb9eb">
+<h3>Lime Charge</h3>
+<p>Electrolyte citrus blast with 80mg caffeine.</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1600180758890-6b94519a8ba6">
-<h3>Berry Surge</h3>
-<p>Antioxidant recovery hydration.</p>
+<img src="https://images.unsplash.com/photo-1622483767028-3f66f32d2bcb">
+<h3>Berry Voltage</h3>
+<p>Antioxidant berries with hydration minerals.</p>
 </div>
 
 <div class="card">
-<img src="https://images.unsplash.com/photo-1622737133809-d95047b9e673">
-<h3>Ice Surge</h3>
-<p>Cooling mint performance formula.</p>
+<img src="https://images.unsplash.com/photo-1622484212850-eb596d769edc">
+<h3>Arctic Mint</h3>
+<p>Cooling mint flavor with clean energy.</p>
 </div>
 
 </div>
 
 </section>
 
+<section class="features" id="features">
 
-<section id="science" class="section">
+<h2>Why Surge?</h2>
 
-<h2 class="title">Hydration Efficiency</h2>
+<div class="feature-grid">
 
-<div class="chart">
-<canvas id="chart"></canvas>
+<div class="feature">
+<h3>⚡ Fast Energy</h3>
+<p>Absorbs faster than drinks.</p>
 </div>
 
-</section>
-
-
-<section id="pricing" class="section">
-
-<h2 class="title">Shop Surge</h2>
-
-<div class="pricing">
-
-<div class="price-card">
-<h3>Starter Pack</h3>
-<div class="price">$19</div>
-<p>10 Surge Pouches</p>
-<button class="cta">Buy</button>
+<div class="feature">
+<h3>💧 Electrolytes</h3>
+<p>Hydration salts for endurance.</p>
 </div>
 
-<div class="price-card">
-<h3>Athlete Pack</h3>
-<div class="price">$39</div>
-<p>30 Surge Pouches</p>
-<button class="cta">Buy</button>
+<div class="feature">
+<h3>🎒 Portable</h3>
+<p>Take Surge anywhere.</p>
 </div>
 
-<div class="price-card">
-<h3>Pro Subscription</h3>
-<div class="price">$29/mo</div>
-<p>Monthly Surge Delivery</p>
-<button class="cta">Subscribe</button>
+<div class="feature">
+<h3>🏃 Athlete Approved</h3>
+<p>Perfect for sports and workouts.</p>
 </div>
 
 </div>
 
 </section>
 
+<section class="athletes" id="athletes">
 
-<section class="section calculator">
+<h2>Powered By Surge</h2>
 
-<h2 class="title">Hydration Calculator</h2>
+<div class="athlete-grid">
 
-<p>Calculate how many Surge pouches you need</p>
+<img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438">
 
-<input id="weight" placeholder="Weight (lbs)">
-<input id="hours" placeholder="Workout hours">
+<img src="https://images.unsplash.com/photo-1526401485004-2fda9f5d0b23">
 
-<br>
-
-<button class="calc" onclick="calculate()">Calculate</button>
-
-<p id="result"></p>
-
-</section>
-
-
-<section class="section">
-
-<h2 class="title">Athletes Who Surge</h2>
-
-<div class="athletes">
-
-<img src="https://images.unsplash.com/photo-1517964103638-c04f6b4d5f0d">
-<img src="https://images.unsplash.com/photo-1546484959-f3b2e1c68d59">
-<img src="https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf">
+<img src="https://images.unsplash.com/photo-1508606572321-901ea443707f">
 
 </div>
 
 </section>
-
 
 <footer>
 
-<h2 style="color:#00ff9d">SURGE</h2>
-<p>Electrolyte Pouches for Elite Performance</p>
-<p>© 2026 Surge</p>
+<p>© 2026 Surge Energy Pouches</p>
+<p>Fuel the Surge ⚡</p>
 
 </footer>
 
-
-<script>
-
-/* HYDRATION CHART */
-
-const ctx=document.getElementById("chart")
-
-new Chart(ctx,{
-type:"bar",
-data:{
-labels:["Surge","Liquid IV","Gatorade","Water"],
-datasets:[{
-label:"Hydration Efficiency",
-data:[95,80,65,40]
-}]
-}
-})
-
-/* CALCULATOR */
-
-function calculate(){
-
-let weight=document.getElementById("weight").value
-let hours=document.getElementById("hours").value
-
-let result=(weight*0.03*hours).toFixed(1)
-
-document.getElementById("result").innerHTML=
-"You need about "+result+" Surge pouches."
-
-}
-
-</script>
-
 </body>
 </html>
-```
-
